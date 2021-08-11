@@ -2,17 +2,19 @@ CREATE DATABASE practicedb
 
 USE practicedb
 
-
 CREATE TABLE countries (
-CountryId int PRIMARY KEY IDENTITY (100,1),
-CountryName varchar(10) NOT NULL ,
-RegionId INT NOT NULL 
- )
-ALTER TABLE countries ADD CONSTRAINT UQ_regionandcountryid UNIQUE (CountryId,RegionId) 
+CountryId varchar(5) NOT NULL,
+RegionId INT NOT NULL ,
+PRIMARY KEY(CountryId,RegionId)
+CountryName varchar(10) NOT NULL CONSTRAINT rest_cname CHECK (CountryName IN ('Chaina','India','Italy') ),
+)
 
-ALTER TABLE countries ADD CONSTRAINT Restrict_countryname CHECK(CountryName IN ('India','Italy','Chaina') )
+INSERT INTO countries (CountryId,CountryName,RegionId) 
+VALUES ('ILY','Italy',3),
+('IND','India',4)
+('CH', 'China', 61)
+('IND','India',13)
+('IND','India',21)
+
 
 SELECT * FROM countries
-
-INSERT INTO countries VALUES ('Italy',13)
-INSERT INTO countries VALUES ('US',15)

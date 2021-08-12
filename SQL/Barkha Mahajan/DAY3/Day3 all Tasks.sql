@@ -15,7 +15,7 @@ FROM dbo.employees
 --Q3
 
 SELECT EmployeeID, FirstName,LastName,HireDate FROM dbo.Employees
-WHERE HireDate LIKE '____-07-' OR HireDate LIKE '____--07'
+WHERE DATEPART(dd,HireDate) LIKE 07 OR DATEPART(mm,HireDate) LIKE 07
 
 --Q4
 
@@ -40,9 +40,8 @@ SELECT Hiredate, DATEDIFF(YEAR, HireDAte, GETDATE()) AS 'Years in company' FROM 
 
 --Q8
 
-set datefirst 1
 SELECT  HireDate FROM Employees 
-WHERE  DATEPART(WEEKDAY,HireDate) LIKE 1
+WHERE  DATENAME(WEEKDAY,HireDate) LIKE 'Monday'
 
 --Q9
 

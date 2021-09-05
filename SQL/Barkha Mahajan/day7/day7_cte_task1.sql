@@ -1,5 +1,5 @@
---DAY 4
---Q1
+--DAY 4 using cte
+--Q1 Write a query to rank employees based on their salary for a month
 
 WITH CTE_SAL_RANK
 AS
@@ -8,7 +8,7 @@ SELECT FirstName+' '+LastName 'Name',  Salary, RANK() OVER (ORDER BY SALARY) [RA
 )
 SELECT * FROM CTE_SAL_RANK
 
---Q2
+--Q2 Select 4th Highest salary from employee table using ranking function
 
 WITH CTE_4_RANK_SAL
 AS
@@ -18,7 +18,7 @@ SELECT FirstName+' '+LastName 'Name',  Salary, SAL_RANK=DENSE_RANK() OVER (ORDER
 SELECT * FROM CTE_4_RANK_SAL
 WHERE [SAL_RANK]=4
 
---Q3
+--Q3Get department, total salary with respect to a department from employee table.
 
 WITH CTE_DEPTWISE_SAL
 AS
@@ -28,7 +28,7 @@ GROUP BY DepartmentID
 )
 SELECT * FROM CTE_DEPTWISE_SAL
 
---Q4
+--Q4 Get department, total salary with respect to a department from employee table order by total salary descending
 
 WITH CTE_DEPTWISE_SAL_DESC
 AS
@@ -39,7 +39,7 @@ GROUP BY DepartmentID
 SELECT * FROM CTE_DEPTWISE_SAL_DSC
 ORDER BY TOTAL_SALARY DESC
 
---Q5
+--Q5 Get department wise maximum salary from employee table order by salary ascending
 
 WITH CTE_DEPTWISE_MAX_SAL
 AS (
@@ -50,7 +50,7 @@ GROUP BY  E.DepartmentID, D.DEPARTMENTNAME
 SELECT * FROM CTE_DEPTWISE_MAX_SAL
 ORDER BY MAX_SALARY
 
---Q6
+--Q6Get department wise minimum salary from employee table order by salary ascending
 
 WITH CTE_DEPTWISE_MIN_SAL
 AS (
@@ -61,7 +61,7 @@ GROUP BY  E.DepartmentID, D.DEPARTMENTNAME
 SELECT * FROM CTE_DEPTWISE_MIN_SAL
 ORDER BY MIN_SALARY
 
---7
+--7 Select department, total salary with respect to a department from employee table where total salary greater than 50000 order by TotalSalary descending
 
 WITH CTE_DEPT_SAL_50000
 AS

@@ -1,19 +1,19 @@
 SELECT * FROM Employee
 SELECT * FROM INCENTIVE
 
---Q1
+--Q1 Select employee details from employee table if data exists in incentive table ?
 
 SELECT * FROM EMPLOYEE 
 WHERE EMPLOYEE_ID IN (SELECT EMPLOYEE_REF_ID FROM INCENTIVE)
 
---Q2
+--Q2 Find Salary of the employee whose salary is more than Roy Salary
 
 SELECT FIRST_NAME, LAST_NAME, SALARY FROM EMPLOYEE 
 WHERE SALARY>(
 SELECT SALARY FROM EMPLOYEE WHERE FIRST_NAME='ROY'
 )
 
---Q3
+--Q3 Create a view to select FirstName,LastName,Salary,JoiningDate,IncentiveDate and IncentiveAmount
 
 CREATE VIEW EMPLOYEE_ALL_INFO
 AS 
@@ -22,7 +22,8 @@ ON E.EMPLOYEE_ID=I.EMPLOYEE_REF_ID
 
 SELECT * FROM EMPLOYEE_ALL_INFO
 
---Q5
+--Q4 Create a view to select Select first_name, incentive amount from employee and incentives
+--table for those employees who have incentives and incentive amount greater than 3000
 
 CREATE VIEW EMPPLOYEE_WITH_INCENTIVE
 AS

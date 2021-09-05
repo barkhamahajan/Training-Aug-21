@@ -46,7 +46,7 @@ SELECT LastName FROM Employees
 WHERE LastName LIKE '__e%'
 
 
--9.Write a query to display the jobs/designations available in the employees table.
+--9.Write a query to display the jobs/designations available in the employees table.
 
 SELECT DISTINCT JOBID FROM Employees
 

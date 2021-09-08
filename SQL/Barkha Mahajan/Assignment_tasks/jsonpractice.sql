@@ -155,3 +155,9 @@ SELECT JSON_VALUE(@jsonfile,'$.INFORMATION[0].Name')
 --create json for a table
 
 SELECT * FROM Employees FOR JSON PATH
+
+
+--modify
+
+SET @jsonfile=JSON_MODIFY(@jsonfile, '$.INFORMATION[0].Age', 22)
+PRINT @jsonfile
